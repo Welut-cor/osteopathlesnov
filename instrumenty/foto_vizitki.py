@@ -6,9 +6,9 @@ from PIL import Image
 ISTOCHNIK = Path(r"C:\Users\emill\Downloads\AyuGram Desktop")
 KUDA = Path(__file__).resolve().parent.parent / "vizitka" / "foto"
 VYBOR = {  # номер снимка -> имя в репозитории
-    2: "portret",
+    7: "portret",      # 17.11 выбор пользователя (было 2)
     1: "meditaciya",
-    3: "koster",
+    5: "koster",       # 17.11 выбор пользователя (было 3)
 }
 
 KUDA.mkdir(parents=True, exist_ok=True)
