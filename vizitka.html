@@ -209,7 +209,7 @@ footer p{margin:8px 0}
 </style>
 <script>
 document.documentElement.classList.add('js');
-// тема: ?tema=temnaya|svetlaya в адресе > выбор посетителя (запомнен) > настройка телефона
+// тема: ?tema=temnaya|svetlaya в адресе > выбор посетителя (запомнен) > светлая (основная)
 window.postavitTemu = function(t){
   var d = t === 'temnaya';
   document.documentElement.setAttribute('data-tema', d ? 'temnaya' : 'svetlaya');
@@ -221,9 +221,7 @@ window.postavitTemu = function(t){
   if (t !== 'temnaya' && t !== 'svetlaya') {
     try { t = localStorage.getItem('vizitka-tema'); } catch (e) { t = null; }
   }
-  if (t !== 'temnaya' && t !== 'svetlaya') {
-    t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'temnaya' : 'svetlaya';
-  }
+  if (t !== 'temnaya' && t !== 'svetlaya') t = 'svetlaya';
   postavitTemu(t);
 })();
 </script>
