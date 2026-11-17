@@ -27,6 +27,9 @@ POVERH = """
 #allrecords #vz footer a{text-decoration:underline}
 #allrecords #vz .btn:hover,#allrecords #vz .btn:focus-visible{color:var(--paper)}
 #vz h1,#vz h2,#vz h3{font-family:inherit;color:inherit}
+/* tilda-grid обнуляет margin у p, блоки Тильды дают ul свои отступы - возвращаем браузерные,
+   с весом простого тега, чтобы классы визитки (.card p и т.п.) по-прежнему были сильнее */
+:where(#vz) p,:where(#vz) ul{margin:1em 0}
 @media (min-width:860px){#vz{font-size:18px}}
 """
 
