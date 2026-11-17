@@ -1,0 +1,14 @@
+/* Georgia */
+@font-face {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Georgia'), url('../fonts/georgia/georgia.woff2') format('woff2');
+}
+/* Georgia Bold */
+@font-face {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Georgia Bold'), url('../fonts/georgia/georgia-bold.woff2') format('woff2');
+}
