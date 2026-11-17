@@ -1,22 +1,20 @@
-# Готовит фото для визитки: выбранные снимки из Telegram -> vizitka/foto/*.webp и *.jpg
+# Готовит фото для визитки: выбранные снимки -> vizitka/foto/*.webp и *.jpg
 # Запуск: python -X utf8 instrumenty/foto_vizitki.py
+# После замены фото поднять версию ?v=... в адресах фото в vizitka.html (иначе браузеры держат старые)
 from pathlib import Path
 from PIL import Image
 
-ISTOCHNIK = Path(r"C:\Users\emill\Downloads\AyuGram Desktop")
+TG = Path(r"C:\Users\emill\Downloads\AyuGram Desktop")
 KUDA = Path(__file__).resolve().parent.parent / "vizitka" / "foto"
-VYBOR = {  # номер снимка -> имя в репозитории
-    7: "portret",      # 17.11 выбор пользователя (было 2)
-    "meditaciya_v2": "meditaciya",  # 17.11 прислано в чат, исходник в vizitka/foto/_Архив (было 1)
-    5: "koster",       # 17.11 выбор пользователя (было 3)
+ARHIV = KUDA / "_Архив"
+VYBOR = {  # имя в репозитории -> исходник (выбор пользователя 17.11.2026)
+    "portret": TG / "photo_7_2026-11-17_17-16-54.jpg",
+    "meditaciya": ARHIV / "meditaciya_ishodnik_v2.png",   # прислано в чат
+    "koster": ARHIV / "koster_ishodnik_v3.jpg",           # из Pictures\Screenshots, 20-52-21
 }
 
 KUDA.mkdir(parents=True, exist_ok=True)
-for n, imya in VYBOR.items():
-    if isinstance(n, int):
-        src = ISTOCHNIK / f"photo_{n}_2026-11-17_17-16-54.jpg"
-    else:
-        src = KUDA / "_Архив" / "meditaciya_ishodnik_v2.png"
+for imya, src in VYBOR.items():
     im = Image.open(src).convert("RGB")
     if im.width > 1200:
         im = im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS)
