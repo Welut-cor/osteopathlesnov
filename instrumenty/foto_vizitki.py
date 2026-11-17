@@ -7,13 +7,16 @@ ISTOCHNIK = Path(r"C:\Users\emill\Downloads\AyuGram Desktop")
 KUDA = Path(__file__).resolve().parent.parent / "vizitka" / "foto"
 VYBOR = {  # номер снимка -> имя в репозитории
     7: "portret",      # 17.11 выбор пользователя (было 2)
-    1: "meditaciya",
+    "meditaciya_v2": "meditaciya",  # 17.11 прислано в чат, исходник в vizitka/foto/_Архив (было 1)
     5: "koster",       # 17.11 выбор пользователя (было 3)
 }
 
 KUDA.mkdir(parents=True, exist_ok=True)
 for n, imya in VYBOR.items():
-    src = ISTOCHNIK / f"photo_{n}_2026-11-17_17-16-54.jpg"
+    if isinstance(n, int):
+        src = ISTOCHNIK / f"photo_{n}_2026-11-17_17-16-54.jpg"
+    else:
+        src = KUDA / "_Архив" / "meditaciya_ishodnik_v2.png"
     im = Image.open(src).convert("RGB")
     if im.width > 1200:
         im = im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS)
