@@ -117,8 +117,18 @@ def fix_links(t):
     t = re.sub(r'href="(?:https?://osteopathlesnov\.ru)?(/[a-z0-9\-]*)([#?][^"]*)?"', repl, t)
     return t
 
+# Копия - зеркало: canonical ведёт на настоящий сайт, поисковикам копию не показываем.
+# При переносе домена на эту копию поставить ZERKALO = False.
+ZERKALO = True
+CANON_RE = re.compile(r'<link rel="canonical" href="[^"]*"\s*/?>')
+
 for n, t in texts.items():
+    canon = CANON_RE.search(t)
     t = inline_vars(fix_links(rewrite(t)))
+    if canon:  # fix_links не должен трогать canonical
+        t = CANON_RE.sub(lambda m: canon.group(0), t, count=1)
+    if ZERKALO and 'name="robots"' not in t:
+        t = t.replace('<head>', '<head><meta name="robots" content="noindex, nofollow">', 1)
     open(os.path.join(SITE, n + '.html'), 'w', encoding='utf-8').write(t)
 
 # 5. служебные файлы сайта

@@ -1,0 +1,29 @@
+Все права защищены / All rights reserved
+
+Этот репозиторий - резервная копия сайта https://osteopathlesnov.ru
+("Остеопат Александр Леснов"), созданного на платформе Tilda.
+
+1. Содержимое сайта - тексты, фотографии, изображения, логотипы, дизайн и
+   вёрстка страниц (файлы *.html в корне и изображения в assets/tilda/tild*) -
+   принадлежит владельцу сайта, Александру Леснову. Копирование, переработка,
+   распространение и любое иное использование без его письменного разрешения
+   запрещены. Открытый доступ к репозиторию не означает разрешения на
+   использование.
+
+2. Программный код, стили и шрифты платформы Tilda (assets/tilda,
+   assets/tilda-neo, кроме изображений владельца) принадлежат Tilda Publishing
+   и используются на условиях Пользовательского соглашения Tilda.
+
+3. Сторонние компоненты распространяются на условиях своих лицензий -
+   см. THIRD_PARTY_NOTICES.md.
+
+4. Скрипты в папке instrumenty/ распространяются по лицензии MIT -
+   см. instrumenty/LICENSE.
+
+---
+
+This repository is a backup copy of https://osteopathlesnov.ru built on Tilda.
+All site content (texts, photos, images, design) is the property of the site
+owner, Alexander Lesnov; no permission to use it is granted. Tilda platform code
+belongs to Tilda Publishing. Third-party components are listed in
+THIRD_PARTY_NOTICES.md. Only the scripts in instrumenty/ are MIT-licensed.

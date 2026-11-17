@@ -1,6 +1,10 @@
 # osteopathlesnov.ru — копия сайта с Tilda
 
-Статическая копия https://osteopathlesnov.ru (проект Tilda 10426977, тариф Personal, официального экспорта нет). Снята 17.11.2026.
+Статическая резервная копия https://osteopathlesnov.ru (проект Tilda 10426977, тариф Personal, официального экспорта нет). Снята 17.11.2026.
+
+- Копия на GitHub Pages: https://welut-cor.github.io/osteopathlesnov/
+- **Права:** содержимое сайта принадлежит владельцу, все права защищены. Код Tilda - Tilda Publishing. Подробно - [LICENSE](LICENSE) и [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Скрипты в `instrumenty/` - MIT.
+- **Режим зеркала:** у каждой страницы `canonical` ведёт на osteopathlesnov.ru и стоит `<meta name="robots" content="noindex, nofollow">`, чтобы поисковики не считали копию дублем настоящего сайта. Если домен переедет на эту копию - убрать `noindex` (в `instrumenty/sborka.py` поставить `ZERKALO = False` и пересобрать).
 
 - Страницы — `*.html` в корне, ссылки между ними относительные: открывается и с диска, и с GitHub Pages (в том числе на поддомене `user.github.io/repo/`).
 - Все файлы с `static.tildacdn.com` и плагин `cdn.postnikovmd.com` лежат в `assets/` (папки `tilda`, `tilda-neo`, `postnikov`). Имена папок специально без `tildacdn`: иначе lazyload Тильды подменяет пути на свой CDN.
