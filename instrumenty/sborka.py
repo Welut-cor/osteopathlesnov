@@ -123,6 +123,9 @@ def fix_links(t):
 # При переносе домена на эту копию поставить ZERKALO = False.
 ZERKALO = True
 CANON_RE = re.compile(r'<link rel="canonical" href="[^"]*"\s*/?>')
+# Яндекс.Метрика в зеркале не нужна: статистика копии владельцу ни к чему,
+# а без счётчика копия не собирает персональные данные (cookie, IP) и не требует своей политики.
+METRIKA_RE = re.compile(r'<!-- Yandex\.Metrika counter.*?<!-- /Yandex\.Metrika counter -->', re.S)
 
 for n, t in texts.items():
     canon = CANON_RE.search(t)
@@ -131,6 +134,8 @@ for n, t in texts.items():
         t = CANON_RE.sub(lambda m: canon.group(0), t, count=1)
     if ZERKALO and 'name="robots"' not in t:
         t = t.replace('<head>', '<head><meta name="robots" content="noindex, nofollow">', 1)
+    if ZERKALO:
+        t = METRIKA_RE.sub('', t)
     open(os.path.join(SITE, n + '.html'), 'w', encoding='utf-8').write(t)
 
 # 5. служебные файлы сайта
