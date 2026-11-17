@@ -10,7 +10,7 @@ ARHIV = KUDA / "_Архив"
 VYBOR = {  # имя в репозитории -> исходник (выбор пользователя 17.11.2026)
     "portret": TG / "photo_7_2026-11-17_17-16-54.jpg",
     "meditaciya": ARHIV / "meditaciya_ishodnik_v2.png",   # прислано в чат
-    "koster": ARHIV / "koster_ishodnik_v3.jpg",           # из Pictures\Screenshots, 20-52-21
+    "koster": TG / "photo_5_2026-11-17_17-16-54.jpg",   # 17.11 вариант 20-52-21 отклонён, вернули №5
 }
 
 KUDA.mkdir(parents=True, exist_ok=True)
