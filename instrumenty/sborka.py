@@ -6,7 +6,8 @@ UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 PAGES = {'index': '/', 'osteopatiya': '/osteopatiya', 'iscelenie': '/iscelenie',
          'distancionnayasessiya': '/distancionnayasessiya', 'perezagruzka': '/perezagruzka',
          'denezhnyy-potok': '/denezhnyy-potok', 'pererozhdenie': '/pererozhdenie'}
-URL_RE = re.compile(r'https?://(?:static|neo|ws)\.tildacdn\.com/[^"\'\s)<>\\]+|https?://cdn\.postnikovmd\.com/[^"\'\s)<>\\]+')
+# thb - заглушки 20px для lazyload (появились после публикации 17.11.2026), neo.tildaapi.com - tilda-fallback.js
+URL_RE = re.compile(r'https?://(?:static|neo|ws|thb)\.tildacdn\.com/[^"\'\s)<>\\]+|https?://neo\.tildaapi\.com/[^"\'\s)<>\\]+|https?://cdn\.postnikovmd\.com/[^"\'\s)<>\\]+')
 
 import gzip, base64
 def get(u):
@@ -33,6 +34,7 @@ def local_path(u):
         return None
     # имена папок без "tildacdn": иначе lazyload Тильды подменяет путь на свой CDN
     folder = {'static.tildacdn.com': 'tilda', 'neo.tildacdn.com': 'tilda-neo', 'ws.tildacdn.com': 'tilda-ws',
+              'thb.tildacdn.com': 'tilda-thb', 'neo.tildaapi.com': 'tilda-api',
               'cdn.postnikovmd.com': 'postnikov'}.get(p.hostname, p.hostname)
     return 'assets/' + folder + path
 
