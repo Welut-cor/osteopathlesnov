@@ -329,7 +329,7 @@ strong{font-weight:700}
 
 /* серая полоса с белой панелью: «с какими запросами», «подходит, если» */
 .panel-razdel{padding:60px 0 70px}
-.panel-razdel .polosa{top:0;bottom:0}
+.panel-razdel .polosa{top:30px;bottom:30px;filter:blur(24px)}   /* отступ от краёв - чтобы .fon не срезал размытие в резкую линию */
 .panel{max-width:1040px;margin:0 auto;padding:52px 22px 50px;text-align:center;width:calc(100% - 64px)}
 .panel .zag{max-width:556px;margin:0 auto}
 .panel .punkty{margin-top:38px}
@@ -351,9 +351,9 @@ strong{font-weight:700}
 .strelka:hover{background:var(--tekst);color:var(--fon)}
 .strelka svg{width:26px;height:26px}
 .karusel{
-  display:flex;align-items:flex-start;gap:22px;margin-top:55px;
+  display:flex;align-items:flex-start;gap:22px;margin-top:25px;
   overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
-  padding:0 calc(50% - 162px) 40px;
+  padding:30px calc(50% - 162px) 40px;   /* 30px сверху - место для тени карточек, иначе лента её срезает */
 }
 .karusel::-webkit-scrollbar{display:none}
 .otzyv{
@@ -377,7 +377,7 @@ strong{font-weight:700}
   .otzyvy{padding:50px 0 60px}
   .otzyvy__strelki{gap:51px;margin-top:30px}
   .strelka{width:60px;height:60px}
-  .karusel{gap:20px;margin-top:50px;padding:0 calc(50% - 250px) 50px}
+  .karusel{gap:20px;margin-top:20px;padding:30px calc(50% - 250px) 50px}
   .otzyv{flex-basis:500px;padding:20px 20px 20px}
   .otzyv__ava{width:50px;height:50px}
   .otzyv__imya{margin-top:10px}

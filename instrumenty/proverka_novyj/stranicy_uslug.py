@@ -1,8 +1,8 @@
-# Разовый генератор шести страниц услуг для novyj/. Тексты - дословно с Тильды.
+# Разовый генератор шести страниц услуг нового сайта (лежали в novyj/, с 18.11 - в корне). Тексты - дословно с Тильды.
 # Существующие файлы не перезаписывает.
 import os, sys, html
 
-KOREN = r"c:\Users\emill\Desktop\Clode projects\osteopathlesnov\novyj"
+KOREN = r"c:\Users\emill\Desktop\Clode projects\osteopathlesnov"
 B, G = "", " plashka_gol"   # бежевая / голубая плашка
 
 def plashki(spisok):

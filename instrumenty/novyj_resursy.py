@@ -1,4 +1,4 @@
-# Однократный перенос картинок, шрифтов и видео из копии Тильды в новый сайт (novyj/).
+# Однократный перенос картинок, шрифтов и видео из копии Тильды (tilda/) в новый сайт (корень репозитория).
 # Запуск из корня репозитория: python -X utf8 instrumenty/novyj_resursy.py
 # Уже существующие файлы не перезаписывает.
 import shutil
@@ -6,10 +6,10 @@ from pathlib import Path
 from PIL import Image
 
 KOREN = Path(__file__).resolve().parent.parent
-T = KOREN / "assets" / "tilda"
-N = KOREN / "novyj"
+T = KOREN / "tilda" / "assets" / "tilda"
+N = KOREN   # до 18.11 сайт лежал в novyj/
 
-KOPII = {  # откуда (в assets/tilda) -> куда (в novyj)
+KOPII = {  # откуда (в tilda/assets/tilda) -> куда (в корне)
     "tild6331-6431-4964-b762-656531303764/Noah-Regular.woff": "fonts/Noah-Regular.woff",
     "tild3561-3135-4133-b439-326138376164/Noah-Bold.woff": "fonts/Noah-Bold.woff",
     "tild3834-3634-4236-b931-626438653537/Ellipse_4.svg": "img/fon/pyatno.svg",
@@ -64,5 +64,5 @@ for otk, kuda, w, fmt, q in SZHAT:
 
 fav = N / "img" / "favicon-32.png"
 if not fav.exists():
-    shutil.copyfile(KOREN / "favicon" / "favicon-32.png", fav)
+    shutil.copyfile(KOREN / "tilda" / "favicon" / "favicon-32.png", fav)
     print("скопирован img/favicon-32.png")

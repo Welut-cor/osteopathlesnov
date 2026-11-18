@@ -1,8 +1,8 @@
-// Проверка поведения novyj/: окно записи, карусель, видео, «вы получите», стопка этапов.
+// Проверка поведения нового сайта: окно записи, карусель, видео, «вы получите», стопка этапов.
 // Нужен локальный сервер на 8765. Запуск из osteopathlesnov: node instrumenty/proverka_novyj/dvizhenie.js
 const { chromium } = require('C:/Users/emill/Desktop/Clode projects/.claude/mcp/playwright/node_modules/playwright-core');
 const OUT = __dirname + '/../../_Архив/novyj_snimki';
-const URL = 'http://127.0.0.1:8765/novyj/';
+const URL = 'http://127.0.0.1:8765/';
 const itog = [];
 const ok = (uslovie, chto) => itog.push((uslovie ? 'ok ' : '!! ') + chto);
 

@@ -1,4 +1,4 @@
-// Проверка novyj/: node proverka_novyj.js [страницы через запятую] [ширины через запятую]
+// Проверка нового сайта (корень репозитория): node proverka_novyj.js [страницы через запятую] [ширины через запятую]
 const { chromium } = require('C:/Users/emill/Desktop/Clode projects/.claude/mcp/playwright/node_modules/playwright-core');
 const fs = require('fs');
 const OUT = __dirname + '/../../_Архив/novyj_snimki';   // снимки - вне git (_Архив в .gitignore)
@@ -17,7 +17,7 @@ const SHIR = (process.argv[3] || '390,768,1440').split(',').map(Number);
       page.on('pageerror', e => osh.push('pageerror: ' + e.message));
       page.on('requestfailed', r => osh.push('сбой запроса: ' + r.url()));
       page.on('response', r => { if (r.status() >= 400) osh.push(r.status() + ' ' + r.url()); });
-      await page.goto(`http://127.0.0.1:8765/novyj/${s}.html`, { waitUntil: 'networkidle' });
+      await page.goto(`http://127.0.0.1:8765/${s}.html`, { waitUntil: 'networkidle' });
       // проехать страницу, чтобы подгрузились ленивые картинки
       const h = await page.evaluate(() => document.documentElement.scrollHeight);
       for (let y = 0; y < h; y += 600) { await page.evaluate(y => scrollTo(0, y), y); await page.waitForTimeout(40); }

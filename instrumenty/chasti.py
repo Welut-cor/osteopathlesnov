@@ -1,6 +1,6 @@
-"""Вставляет общие части сайта из novyj/chasti/ во все страницы novyj/*.html.
+"""Вставляет общие части сайта из chasti/ во все страницы *.html в корне репозитория.
 
-Общая часть - файл novyj/chasti/<имя>.html. В странице для неё стоят метки:
+Общая часть - файл chasti/<имя>.html. В странице для неё стоят метки:
     <!-- chast:<имя> -->
     ...сюда скрипт кладёт содержимое файла...
     <!-- /chast:<имя> -->
@@ -16,7 +16,7 @@ import pathlib
 import re
 import sys
 
-KOREN = pathlib.Path(__file__).resolve().parent.parent / "novyj"
+KOREN = pathlib.Path(__file__).resolve().parent.parent   # сайт лежит в корне репозитория
 CHASTI = KOREN / "chasti"
 METKA = re.compile(r"(<!-- chast:([\w-]+) -->)(.*?)(<!-- /chast:\2 -->)", re.S)
 

@@ -4,7 +4,7 @@ const { chromium } = require('C:/Users/emill/Desktop/Clode projects/.claude/mcp/
   const [s, w] = process.argv.slice(2);
   const b = await chromium.launch({ channel: 'msedge', headless: true });
   const page = await (await b.newContext({ viewport: { width: +w, height: 844 } })).newPage();
-  await page.goto(`http://127.0.0.1:8765/novyj/${s}.html`, { waitUntil: 'networkidle' });
+  await page.goto(`http://127.0.0.1:8765/${s}.html`, { waitUntil: 'networkidle' });
   const r = await page.evaluate(() => {
     const vw = document.documentElement.clientWidth, out = [];
     document.querySelectorAll('body *').forEach(el => {

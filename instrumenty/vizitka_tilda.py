@@ -50,12 +50,12 @@ def main():
     if "querySelector('meta" in skript_tema.replace("document.querySelector('meta[name=\"' + n", ''):
         sys.exit('скрипт темы изменился - поправь замены meta')
 
-    kod = '<link rel="preload" href="assets/tilda/tild6331-6431-4964-b762-656531303764/Noah-Regular.woff" as="font" type="font/woff" crossorigin>\n'
+    kod = '<link rel="preload" href="tilda/assets/tilda/tild6331-6431-4964-b762-656531303764/Noah-Regular.woff" as="font" type="font/woff" crossorigin>\n'
     kod += '<style>' + style.rstrip() + '\n' + POVERH + '</style>\n'
     kod += '<script>' + skript_tema + '</script>\n'
     kod += '<div id="vz">' + telo + '</div>\n'
 
-    kod = kod.replace('assets/tilda/', 'https://static.tildacdn.com/')
+    kod = kod.replace('tilda/assets/tilda/', 'https://static.tildacdn.com/')
     for imya, url in FOTO.items():
         kod = re.sub(r'vizitka/foto/' + re.escape(imya) + r'(\?v=[\w]+)?', url, kod)
     kod = kod.replace('href="index.html"', 'href="/"')
