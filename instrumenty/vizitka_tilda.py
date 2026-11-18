@@ -33,6 +33,7 @@ POVERH = """
 @media (min-width:860px){#vz{font-size:18px}}
 /* баннер cookie (T972) на этой странице - шрифтом визитки, а не Arial/Georgia */
 .t972 .t-name,.t972 .t-descr,.t972 .t-btnflex__text,.t972__toggle-txt{font-family:'noah',Arial,sans-serif!important}
+.t972 .t-descr a{color:#ff8562!important;text-decoration:none!important}
 """
 
 def main():
