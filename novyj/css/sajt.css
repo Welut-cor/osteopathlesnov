@@ -444,6 +444,7 @@ strong{font-weight:700}
 .usluga .plashki .plashka{font-size:14px;line-height:15.4px}
 .usluga h1,.usluga h2{margin-top:8px}
 .usluga__cena{margin-top:12px;color:var(--tusk)}
+.usluga__cena span{color:#000}          /* пояснение к цене - чёрным, как на Тильде */
 .usluga__lid{max-width:367px;margin-top:30px}
 .usluga .knopka{width:min(325px,100%);margin-top:30px}
 @media (min-width:960px){
