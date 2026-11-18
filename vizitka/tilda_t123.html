@@ -202,6 +202,8 @@ footer p{margin:8px 0}
    с весом простого тега, чтобы классы визитки (.card p и т.п.) по-прежнему были сильнее */
 :where(#vz) p,:where(#vz) ul{margin:1em 0}
 @media (min-width:860px){#vz{font-size:18px}}
+/* баннер cookie (T972) на этой странице - шрифтом визитки, а не Arial/Georgia */
+.t972 .t-name,.t972 .t-descr,.t972 .t-btnflex__text,.t972__toggle-txt{font-family:'noah',Arial,sans-serif!important}
 </style>
 <script>
 document.documentElement.classList.add('js');
