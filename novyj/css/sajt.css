@@ -236,13 +236,22 @@ strong{font-weight:700}
 /* ---------- как проходит: карточки стопкой ---------- */
 .etapy{padding:54px 11px 120px}
 .etapy__spisok{display:flex;flex-direction:column;gap:20px;max-width:500px;margin:80px auto 0}
+/* Липкая карточка не выходит за низ списка, а последняя всегда стоит у низа - без запаса
+   стопка сливается в одну карточку. Запас: нижнее поле по 34px за каждую карточку после неё,
+   у следующей - такое же отрицательное верхнее, поэтому расстояния между карточками прежние. */
+.etapy__spisok .etap:nth-last-child(2){--posle:1}
+.etapy__spisok .etap:nth-last-child(3){--posle:2}
+.etapy__spisok .etap:nth-last-child(4){--posle:3}
+.etapy__spisok .etap{margin-bottom:calc(var(--posle,0) * 34px)}
+.etapy__spisok .etap + .etap{margin-top:calc((var(--posle,0) + 1) * -34px)}
 .etap{
   position:sticky;top:calc(var(--shapka) + 20px + var(--i,0) * 34px);
   display:flex;flex-direction:column;align-items:center;gap:30px;
   min-height:246px;padding:40px 30px;text-align:center;
 }
 .etap__zag{color:var(--tusk);font-size:18px;line-height:19.8px}
-.etap__tekst{max-width:330px}
+.etap__tekst{max-width:290px}
+@media (min-width:960px){.etap__tekst{max-width:330px}}
 .etap .plashka{margin-bottom:-10px}
 @media (min-width:960px){
   .etapy{padding:50px 20px 140px}
@@ -445,12 +454,12 @@ strong{font-weight:700}
 .usluga h1,.usluga h2{margin-top:8px}
 .usluga__cena{margin-top:12px;color:var(--tusk)}
 .usluga__cena span{color:#000}          /* пояснение к цене - чёрным, как на Тильде */
-.usluga__lid{max-width:367px;margin-top:30px}
+.usluga__lid{max-width:300px;margin-top:30px}
 .usluga .knopka{width:min(325px,100%);margin-top:30px}
 @media (min-width:960px){
   .usluga{padding:112px 24px 110px}
   .usluga .pyatno{width:600px;left:calc(50% - 740px);top:197px}
-  .usluga .plashki{max-width:460px}
+  .usluga .plashki{max-width:380px}
   .usluga .plashki .plashka{font-size:18px;line-height:20px}
   .usluga h1,.usluga h2{margin-top:16px}
   .usluga__cena{margin-top:12px}
